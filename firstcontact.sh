@@ -59,10 +59,6 @@ echo "\n" | tee -a $file
 echo "I've got a 4-alarm hangover. It's either from all that whiskey, or your laser beam. Or both. But I'm ready to make history."
 echo "Zefram Cochran"
 
-
-
-
-
 ##checking if host is online
 echo "Phase 0: checking if host is alive" 
 if ping -c 1 -W 1 "$url_input" 2>&1 >/dev/null; then
