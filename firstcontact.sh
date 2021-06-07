@@ -56,8 +56,8 @@ echo "version 0.0" | tee -a $file
 echo "author: mueller-ger" | tee -a $file
 echo "\n" | tee -a $file
 
-echo "I've got a 4-alarm hangover. It's either from all that whiskey, or your laser beam. Or both. \nBut I'm ready to make history."
-echo "Zefram Cochran"
+echo "\"I've got a 4-alarm hangover. It's either from all that whiskey, or your laser beam. Or both. \nBut I'm ready to make history.\""
+echo "- Zefram Cochran"
 echo "\n"
 
 ##checking if host is online
