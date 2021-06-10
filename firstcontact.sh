@@ -44,21 +44,18 @@ url=$protokoll$url_input/;
 
 ######################
 ## Main script
+red='\033[1;31m'
+green='\033[0;32m'
+white='\033[1;37m'
 
-echo "\n" | tee $file
-echo "███████╗██╗██████╗ ███████╗████████╗     ██████╗ ██████╗ ███╗   ██╗████████╗ █████╗  ██████╗████████╗" | tee -a $file
-echo "██╔════╝██║██╔══██╗██╔════╝╚══██╔══╝    ██╔════╝██╔═══██╗████╗  ██║╚══██╔══╝██╔══██╗██╔════╝╚══██╔══╝" | tee -a $file
-echo "█████╗  ██║██████╔╝███████╗   ██║       ██║     ██║   ██║██╔██╗ ██║   ██║   ███████║██║        ██║   " | tee -a $file
-echo "██╔══╝  ██║██╔══██╗╚════██║   ██║       ██║     ██║   ██║██║╚██╗██║   ██║   ██╔══██║██║        ██║   " | tee -a $file
-echo "██║     ██║██║  ██║███████║   ██║       ╚██████╗╚██████╔╝██║ ╚████║   ██║   ██║  ██║╚██████╗   ██║   " | tee -a $file
-echo "╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝   ╚═╝        ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝   ╚═╝   " | tee -a $file
+figlet -f slant First Contact | tee  $file
 echo "version 0.0" | tee -a $file
 echo "author: mueller-ger" | tee -a $file
 echo "\n" | tee -a $file
 
-echo "\"I've got a 4-alarm hangover. It's either from all that whiskey, or your laser beam. Or both. \nBut I'm ready to make history.\""
-echo "- Zefram Cochran"
-echo "\n"
+echo "$red \"I've got a 4-alarm hangover. It's either from all that whiskey, or your laser beam. Or both. \n But I'm ready to make history.\""
+echo "$green - Zefram Cochran"
+echo "$white\n"
 
 ##checking if host is online
 echo "Phase 0: checking if host is alive" 
@@ -71,6 +68,7 @@ else
 fi
 
 echo "\n" 
+######################
 
 ## nmap
 echo "Phase 1: scanning Well-Known-Ports" 
@@ -82,6 +80,7 @@ echo "\n" >> $file
 nmap -T4 -sC -sV -p 0-1023  $url_input | sed -n '/PORT/,/Nmap/p' >> $file
 echo "Phase 1: Done"
 echo "\n" 
+######################
 
 ## gobuster
 echo "Phase 2: brute forcing Sitemap"
@@ -111,10 +110,12 @@ echo "\n" >> $file
 
 echo "Phase 2: Done"
 echo "\n" 
+##################
+
+## End
 echo "The output is written to $file"                                                                                               
 notify-send 'Notifaction' 'First Contact is finished!'
-exit                                                                                                        
-                                                                                                        
+exit                                                                                                      
                                                                                                         
                                                                                                         
                                                                                                         
