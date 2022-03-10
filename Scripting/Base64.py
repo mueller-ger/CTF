@@ -14,5 +14,3 @@ for i in range(0,50):
     Encodedfile = encoding(Encodedfile)
 
 print(Encodedfile)
-
-#test
